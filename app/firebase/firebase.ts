@@ -1,8 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth"; // For Firebase Authentication
+import { getFirestore } from "firebase/firestore"; // For Firestore
 
 // Initialize Firebase only on the client side
-let app;
+let app, auth, firestore;
 
 if (typeof window !== "undefined") {
   const firebaseConfig = {
@@ -18,10 +20,14 @@ if (typeof window !== "undefined") {
   // Initialize Firebase
   app = initializeApp(firebaseConfig);
 
-  // Only initialize analytics in the client-side
+  // Initialize Firebase Analytics
   if (typeof window !== "undefined" && app) {
-    getAnalytics(app);  // Initialize Firebase Analytics
+    getAnalytics(app);
   }
+
+  // Initialize Firebase Auth and Firestore
+  auth = getAuth(app);
+  firestore = getFirestore(app);
 }
 
-export { app };
+export { app, auth, firestore };
