@@ -1,4 +1,5 @@
 import React from 'react'
+import Register from '../register/page';
 import Link from 'next/link';
 
 const Login = () => {
@@ -70,9 +71,9 @@ const Login = () => {
               <div className="mt-6 text-center">
                 <p className="text-sm text-gray-600">
                   Don't have an account?{' '}
-                <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <a href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Register here
-                </Link>
+                  </a>
                 </p>
               </div>
             </div>
